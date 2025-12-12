@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup & Skincare</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: no-repeat center center fixed;
+            background-size: cover;
+            color: #404040;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 245, 250, 0.9);
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, rgb(214, 214, 214), #f5aac8);
+            padding: 15px 40px;
+            color: #fff;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            background: linear-gradient(to right, rgb(206, 206, 206), rgb(255, 161, 177));
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: rgb(57, 57, 57);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color:  rgb(57, 57, 57);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #501768;
+        }
+
+        .hero {
+            background: linear-gradient(to right, rgb(249, 201, 244), #fce1ec);
+            text-align: center;
+            background-image: url(https://images.yourstory.com/cs/4/211ccaf00e6d11e997fe8f165dce9bb1/Imageifxu-1596799036123-1601633425902.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 220px 80px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .hero h2 {
+            font-size: 2.4em;
+            margin-bottom: 15px;
+            color: #fefbfe;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #f8f6f6;
+            opacity: 0.9;
+        }
+
+        .Tentang {
+            background-color: #fff;
+            max-width: 850px;
+            margin: 60px auto;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .Tentang:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .psection {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .psection h3 {
+            color: rgb(112, 112, 217);
+            font-size: 1.9em;
+            margin-bottom: 25px;
+        }
+
+        .pcontainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .pcard {
+            background: linear-gradient(135deg, #fec3d0, #d2d2d2);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .pcard:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 15px rgba(159, 82, 82, 0.15);
+        }
+
+        .pcard img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .pcard h4 {
+            margin: 10px 0 5px;
+            color:rgb(83, 83, 83);
+        }
+
+        .ccontainer {
+            max-width: 750px;
+            margin: 70px auto;
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .oform {
+            max-width: 750px;
+            margin: 70px auto;
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .oform h3 {
+            text-align: center;
+            color: #4f1a4e;
+            margin-bottom: 20px;
+        }
+
+        .oform form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .oform input,
+        .oform textarea,
+        .oform select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .oform button {
+            padding: 12px;
+            background: #ff8ba4;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .oform button:hover {
+            background: rgb(186, 131, 183);
+        }
+
+        footer {
+            background-color: #ff8ba4;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/4f/82/44/4f8244ecf7d21945a5c2813c6c974acb.jpg"
+                alt="Logo">
+            <h1>Aurielle</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#tentang">About</a></li>
+                <li><a href="#produk">Product</a></li>
+                <li><a href="#kontak">Contact</a></li>
+                <li><a href="#Pemesanan">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Aurielle — Beauty Refined, Skin Defined.</h2>
+    </section>
+
+    <section class="Tentang" id="tentang">
+        <h2>About</h2>
+        <p>Selamat datang di <strong>Aurielle</strong>, tempat di mana kelembutan bertemu keanggunan untuk memancarkan
+            kilau alami kulitmu.
+            Kami merawat setiap pesona dengan sentuhan bahan alami dan teknologi modern — karena kecantikan sejati
+            dimulai
+            dari kulit yang sehat dan bahagia. 🌸
+            <strong>Di Aurielle</strong>, kami percaya setiap perempuan punya cahaya uniknya sendiri. Dengan perpaduan
+            bahan alami dan
+            inovasi modern, kami bantu kamu tampil lebih
+            percaya diri — lembut, anggun, dan bercahaya alami.
+        </p>
+    </section>
+
+    <section class="psection" id="produk">
+        <h2>Products</h2>
+
+        <div class="pcontainer">
+
+            <div class="pcard">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.5PXHKhg-E72k7TdB6TxZ1wHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"alt="Sunscreen">
+                <h4>SUNSCREEN COLLECTION 5X Ceramide</h4>
+                <p><strong>Category:</strong> Sunscreen</p>
+                <p><strong>Price:</strong> Rp 69.000</p>
+            </div>
+
+            <div class="pcard">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.jygUWJMBz1YVYHCqkb233gHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="two way cake">
+                <h4>Implora Day to Day Series Two Way cake</h4>
+                <p><strong>Category:</strong>two way cake</p>
+                <p><strong>Price:</strong> Rp 159.000</p>
+            </div>
+
+            <div class="pcard">
+                <img src="data:image/jpeg;base64,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"
+                    alt="Lipsuns">
+                <h4>Facetology Triple Care Lip Protector Sunscreen SPF 50 PA++++</h4>
+                <p><strong>Category:</strong> Sunscreen</p>
+                <p><strong>Price:</strong> Rp 56.900</p>
+            </div>
+
+            <div class="pcard">
+                <img src="https://images.tokopedia.net/img/cache/200-square/aphluv/1997/1/1/14ceedb82a2342b6ba41943357e9ae3f~.jpeg"alt="cushion">
+                <h4>Cushion G2g</h4>
+                <p><strong>Category:</strong>cushion</p>
+                <p><strong>Price:</strong> Rp 189.000</p>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="ccontainer" id="kontak">
+        <h2>Hubungi Kami</h2>
+        <p>Alamat: Jl. Arwana No.24, Tanjung Enim, Sumatera Selatan</p>
+        <p>Telepon: <a href="tel:+6288286085087">+62 8132 3242 009</a></p>
+        <p>Email: <a href="mailto:aurielle@gmail.com">aurielle@gmail.com</a></p>
+    </section>
+
+    <div class="oform" id="Pemesanan">
+        <h2>Form Pemesanan Produk</h2>
+        <form id="formorder-form" action="#" method="post" enctype="multipart/form-data">
+
+            <form action="#" method="post">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+
+                <label for="alamat">Alamat Pengiriman:</label>
+                <textarea id="alamat" name="alamat" rows="3" required></textarea>
+
+                <label for="produk">Pilih Produk:</label>
+                <select id="produk" name="produk" required>
+                    <option value="">-- Pilih Produk --</option>
+                    <option>Facial Wash</option>
+                    <option>Sunscreen</option>
+                    <option>Lip Protector Sunscreen</option>
+                    <option>Moisturizer</option>
+                    <option>Micellar Water 300ML</option>
+                    <option>Peeling Serum </option>
+                </select>
+
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" required>
+
+                <label for="telepon">Nomor WhatsApp:</label>
+                <input type="text" id="telepon" name="telepon" required>
+
+                <button type="submit">Pesan Sekarang</button>
+            </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("formorder-form");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+
+            alert("Terima kasih, " + nama + "! Pesanan Anda telah berhasil dikirim");
+
+            form.reset();
+        });
+    </script>
+
+    <footer>
+        © 2025 Renita Style Beauty | All rights reserved.
+    </footer>
+</body>
+    
+</html>
